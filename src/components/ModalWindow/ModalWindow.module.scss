@@ -1,0 +1,26 @@
+.modal-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.54);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-window{
+    width: 400px;
+    padding: 1.5em;
+    background-color: white;
+    position: relative;
+}
+.modal-content{
+    padding-top: 20px;
+}
+.button-modal-window{
+    top: 15px;
+    right: 15px;
+    position: absolute;
+}

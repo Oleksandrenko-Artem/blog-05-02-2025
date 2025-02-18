@@ -1,0 +1,16 @@
+@use '/src/common/styles/colors' as *;
+
+.user-card{
+    max-width: 296px;
+    min-width: 296px;
+    min-height: 308px;
+    padding: 40px;
+    background-color: $lightGray;
+    text-align: center;
+    &:hover{
+        background-color: $lightYellow;
+    }
+    >div>img{
+        border-radius: 50%;
+    }
+}

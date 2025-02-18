@@ -1,0 +1,20 @@
+@use '/src/common/styles/templates' as *;
+
+.form{
+    @extend %flex-column;
+    label{
+        @extend %flex-column;
+        margin-bottom: 1em;
+    }
+    input{
+        padding: 0.5em;
+    }
+}
+.password{
+    position: relative;
+}
+.eye{
+    top: 1.6em;
+    right: 0.3em;
+    position: absolute;
+}
