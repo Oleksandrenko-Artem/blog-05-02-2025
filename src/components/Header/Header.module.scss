@@ -1,9 +1,8 @@
 @use '/src/common/styles/breakpoints' as *;
+@use '/src/common/styles/templates' as *;
 
 .header{
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
+    @extend %limit-width;
 }
 .header-top{
     display: flex;

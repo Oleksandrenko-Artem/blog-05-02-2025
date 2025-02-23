@@ -1,8 +1,8 @@
-
+import styles from './pages.module.scss';
 
 const HomePage = () => {
     return (
-        <div>
+        <div className={styles.wrapper}>
             <h1>Home page</h1>
         </div>
     );

@@ -1,16 +1,24 @@
 @use '/src/common/styles/colors' as *;
 
 .user-card{
-    max-width: 296px;
-    min-width: 296px;
+    // max-width: 296px;
+    width: 25% - 2%;
+    min-width: 272px;
     min-height: 308px;
     padding: 40px;
+    margin: 1%;
     background-color: $lightGray;
     text-align: center;
+    cursor: pointer;
     &:hover{
         background-color: $lightYellow;
     }
     >div>img{
         border-radius: 50%;
     }
+}
+.users-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }

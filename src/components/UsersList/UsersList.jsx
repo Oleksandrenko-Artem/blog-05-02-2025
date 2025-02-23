@@ -14,7 +14,7 @@ const UsersList = () => {
     const showUser = (user) => <UserCard key={user.id} user={user} />
     if (error) { return <p>{error}</p> }
     if (isPending) { return <Spinner /> }
-    return users.length === 0 ? <p>List users empty</p> : <section>{users.map(showUser)}</section>;
+    return users.length === 0 ? <p>List users empty</p> : <section className={styles['users-list']}>{users.map(showUser)}</section>;
 }
 
 export default UsersList;

@@ -2,3 +2,8 @@
     display: flex;
     flex-direction: column;
 }
+%limit-width{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
