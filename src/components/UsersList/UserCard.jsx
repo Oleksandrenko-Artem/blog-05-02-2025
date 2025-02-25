@@ -19,7 +19,6 @@ const UserCard = (props) => {
     );
 };
 
-
 UserCard.propTypes = {
     user: PropTypes.shape({
         id: PropTypes.number,

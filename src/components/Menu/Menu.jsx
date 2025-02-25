@@ -5,8 +5,8 @@ const Menu = () => {
     return (
         <nav className={styles.menu}>
             <ul>
-                <li><NavLink to='/'>Home</NavLink></li>
-                <li><NavLink to='/users'>Authors</NavLink></li>
+                <li><NavLink to='/' className={({isActive}) => (isActive ? styles.active : undefined)}>Home</NavLink></li>
+                <li><NavLink to='/users' className={({isActive}) => (isActive ? styles.active : undefined)}>Authors</NavLink></li>
             </ul> 
         </nav>
     );
