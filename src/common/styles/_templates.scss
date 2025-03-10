@@ -1,3 +1,5 @@
+@use '/src/common/styles/colors' as *;
+
 %flex-column{
     display: flex;
     flex-direction: column;
@@ -11,4 +13,12 @@
     width: 100%;
     max-width: 1200px;
     margin: auto;
+}
+%btn-read-more{
+    background-color: $yellow;
+    border: none;
+    padding: 1em 1.5em;
+    &::after{
+        content: ' >';
+    }
 }

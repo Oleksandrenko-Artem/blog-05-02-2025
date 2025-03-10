@@ -1,0 +1,26 @@
+@use '/src/common/styles/templates' as *;
+
+.full-screen{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+.featured-blog{
+    display: flex;
+    img {
+        max-width: 80%;
+        object-fit: cover;
+    }
+    h2{
+        text-align: left;
+    }
+    button{
+        @extend %btn-read-more;
+    }
+}

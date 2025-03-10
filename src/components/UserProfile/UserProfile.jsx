@@ -17,7 +17,7 @@ const UserProfile = () => {
     }, [dispatch, userId]);
 
     if (error) { return <p>error</p> }
-    if (isPending) { return <Spinner/> }
+    if (isPending) { return <Spinner />}
     if (!selectedUser) {return <p>not user profile available</p>}
     
     return (

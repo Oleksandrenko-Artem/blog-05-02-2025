@@ -2,9 +2,10 @@ import styles from './Spinner.module.scss';
 
 const Spinner = () => {
     return (
-        <span className={styles.loader}>
-            
-        </span>
+        <div className={styles.container}>
+            <span className={styles.loader}></span>
+        </div>
+
     );
 }
 
