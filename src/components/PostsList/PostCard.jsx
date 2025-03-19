@@ -7,8 +7,8 @@ import styles from './PostsList.module.scss';
 const PostCard = (props) => {
     const { post, withPic } = props;
     const [author, setAuthor] = useState(null);
-        const navigate = useNavigate();
-        const navigateToPostPage = () => {
+    const navigate = useNavigate();
+    const navigateToPostPage = () => {
             navigate(`/posts/${post.id}`);
     }
     useEffect(() => {

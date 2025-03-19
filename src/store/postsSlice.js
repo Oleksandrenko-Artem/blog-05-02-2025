@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getAllPosts, getOnePost } from "../api";
+import { getAllPosts, getOnePost, getAllCommentsByPost } from "../api";
 
 export const getAllPostsAsync = createAsyncThunk(
     'posts/getAllPostsAsync',
@@ -23,11 +23,23 @@ export const getOnePostAsync = createAsyncThunk(
         }
     }
 );
+export const getAllCommentsByPostAsync = createAsyncThunk(
+    'posts/getAllCommentsByPostAsync',
+    async (id, thunkAPI) => {
+        try {
+            const response = await getAllCommentsByPost(id);
+            return response.data.comments;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error?.message || 'Comments not exists')
+        }
+    }
+);
 const postsSlice = createSlice({
     name: 'posts',
     initialState: {
         posts: [],
         selectedPost: null,
+        comments: [],
         error: null,
         isPending: false,
     },
@@ -52,6 +64,17 @@ const postsSlice = createSlice({
             state.selectedPost = action.payload;
         })
         builder.addCase(getOnePostAsync.rejected, (state, action) => {
+            state.isPending = false;
+            state.error = action.payload;
+        })
+        builder.addCase(getAllCommentsByPostAsync.pending, (state) => {
+            state.isPending = true
+        })
+        builder.addCase(getAllCommentsByPostAsync.fulfilled, (state, action) => {
+            state.isPending = false;
+            state.comments = action.payload;
+        })
+        builder.addCase(getAllCommentsByPostAsync.rejected, (state, action) => {
             state.isPending = false;
             state.error = action.payload;
         })

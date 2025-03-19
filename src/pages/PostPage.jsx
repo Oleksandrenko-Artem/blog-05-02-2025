@@ -1,11 +1,10 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import PostDetails from '../components/PostDetails/PostDetails';
 
 const PostPage = () => {
-    
     return (
         <div>
-            <h1>One post</h1>
+            <PostDetails/>
         </div>
     );
 };
