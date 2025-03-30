@@ -3,6 +3,7 @@ import CONSTANTS from './../constants';
 import UsersList from '../components/UsersList/UsersList';
 import PostsList from './../components/PostsList/PostsList';
 import FeaturedPost from '../components/FeaturedPost/FeaturedPost';
+import TagsList from './../components/TagsList/TagsList';
 import styles from './pages.module.scss';
 
 const HomePage = () => {
@@ -28,6 +29,10 @@ const HomePage = () => {
                 <section>
                     <h2>List of authors</h2>
                     <UsersList />
+                </section>
+                <section>
+                    <h2>Choose a tag</h2>
+                    <TagsList/>
                 </section>
             </div>
         </>

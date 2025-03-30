@@ -17,6 +17,13 @@
         color: $purple;
         text-decoration: underline;
     }
+    .tag-link:not(:first-child){
+        padding-left: 0.5rem;
+    }
+    .tag-link:not(:last-child)::after{
+        content: '|';
+        padding-left: 0.5rem;
+    }
     img{
         margin-right: 15px;
     }

@@ -22,5 +22,20 @@ export const getAllPosts = (options) => {
 }
 
 export const getOnePost = (id) => httpClient.get(`/posts/${id}`);
+
 // comments by one post
 export const getAllCommentsByPost = (id) => httpClient.get(`/comments/post/${id}`);
+
+// all posts by user id
+export const getAllPostsByUser = (id) => httpClient.get(`/posts/user/${id}`);
+
+// all tags
+export const getAllTags = () => httpClient.get('/posts/tag-list');
+
+// all posts by tag
+// add querystring
+export const getAllPostsByTag = (options) => {
+    const { tagName, ...restParams } = options; // restParams = { limit:2, skip:4 }
+    const query = queryString.stringify(restParams); // query = 'limit=2&skip=4'
+    return httpClient.get(`/posts/tag/${tagName}?${query}`);
+}

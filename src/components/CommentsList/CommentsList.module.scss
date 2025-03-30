@@ -1,0 +1,14 @@
+.comment{
+    display: flex;
+    align-items: center;
+    h3{
+        margin-right: 8px;
+    }
+    .comment-likes{
+        display: flex;
+        margin-left: 15px;
+        svg{
+            margin-right: 10px;
+        }
+    }
+}

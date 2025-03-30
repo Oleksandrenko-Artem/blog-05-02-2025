@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
 import { getOnePostAsync, getAllCommentsByPostAsync } from '../../store/postsSlice';
 import { mdiThumbUp, mdiThumbDown } from '@mdi/js';
+import { getOneUser } from './../../api/index';
 import Icon from '@mdi/react';
 import CommentsList from './../CommentsList/CommentsList';
 import Spinner from './../Spinner/Spinner';
-import { getOneUser } from './../../api/index';
+import styles from './PostDetails.module.scss';
 
 const PostDetails = () => {
     const dispatch = useDispatch();
@@ -38,43 +39,39 @@ const PostDetails = () => {
     if (isPending) { return <Spinner /> }
     if (!selectedPost) { return <p>not post available</p> }
     return (
-        <div>
-            <div>
-                <section>
+        <section className={styles['post-details']}>
+            <div className={styles['flex-row']}>
+                <div className={styles['flex-row']}>
+                    <img className={styles['user-image']} src={image} />
                     <div>
-                        <div>
-                            <img src={image} />
-                            <div>
-                                <h2>{author}</h2>
-                                <p>Views: {selectedPost.views}</p>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <Icon path={mdiThumbUp} size={1} />
-                                {selectedPost.reactions.likes}
-                                <Icon path={mdiThumbDown} size={1} />
-                                {selectedPost.reactions.dislikes}
-                            </div>
-                        </div>
+                        <h2>{author} ({selectedPost.userId})</h2>
+                        <p>Views: {selectedPost.views}</p>
                     </div>
-                    <div>
-                        <p>{selectedPost.tags.join(' | ')}</p>
-                        <h2>{selectedPost.title}</h2>
-                        <picture>
-                            <img src="/images/1600x1200.png"/>
-                        </picture>
-                        <p>{selectedPost.body}</p>
-                        <h3>Comments:</h3>
-                        {comments.length === 0 ? (
-                            <p>empty comments list</p>
-                        ) : (
-                            <CommentsList comments={comments} />
-                        )}
-                    </div>
-                </section>
+                </div>
+                <div className={styles['comment-reactions']}>
+                    <Icon path={mdiThumbUp} size={1} />
+                    {selectedPost.reactions.likes}
+                    <Icon path={mdiThumbDown} size={1} />
+                    {selectedPost.reactions.dislikes}
+                </div>
             </div>
-        </div>
+            <div>
+                <div>
+                    <h2>{selectedPost.title}</h2>
+                    <p>{selectedPost.tags.join(' | ')}</p>
+                    <picture>
+                        <img className={styles['post-image']} src="/images/1600x1200.png" />
+                    </picture>
+                    <p>{selectedPost.body}</p>
+                    <h3>Comments:</h3>
+                    {comments.length === 0 ? (
+                        <p>empty comments list</p>
+                    ) : (
+                        <CommentsList comments={comments} />
+                    )}
+                </div>
+            </div>
+        </section>
     );
 };
 

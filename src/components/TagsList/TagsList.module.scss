@@ -1,0 +1,16 @@
+@use '/src/common/styles/colors' as *;
+
+.tags{
+    display: flex;
+    flex-wrap: wrap;
+    li{
+        margin: 0 0.5em;
+        &:hover {
+            background-color: $lightYellow;
+        }
+        a{
+            padding: 0.5em;
+            text-transform: capitalize;
+        }
+    }
+}

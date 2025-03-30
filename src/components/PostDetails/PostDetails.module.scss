@@ -1,0 +1,22 @@
+.flex-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.post-details{
+    padding: 0 0.5rem;
+    .user-image {
+        width: 4em;
+        height: 4em;
+        margin-right: 1em;
+    }
+    .post-image{
+        width: 100%;
+    }
+    .comment-reactions{
+        display: flex;
+        svg{
+            margin: 0 10px;
+        }
+    }
+}
