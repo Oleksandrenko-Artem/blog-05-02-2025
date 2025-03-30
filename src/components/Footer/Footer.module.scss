@@ -1,0 +1,19 @@
+@use '/src/common/styles/colors' as *;
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    background-color: $purple;
+    padding: 0 20px;
+    h2::before{
+        content: "{";
+    }
+    ul{
+        display: flex;
+        flex-direction: row;
+        li{
+            margin: 10px;
+        }
+    }
+}
