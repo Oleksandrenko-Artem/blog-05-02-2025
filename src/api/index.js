@@ -39,3 +39,9 @@ export const getAllPostsByTag = (options) => {
     const query = queryString.stringify(restParams); // query = 'limit=2&skip=4'
     return httpClient.get(`/posts/tag/${tagName}?${query}`);
 }
+
+// search
+export const searchPosts = (options) => {
+    const query = queryString.stringify(options);
+    return httpClient.get(`/posts/search?${query}`);
+}

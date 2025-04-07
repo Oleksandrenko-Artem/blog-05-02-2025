@@ -8,6 +8,7 @@ import Icon from '@mdi/react';
 import Menu from './../Menu/Menu';
 import ModalWindow from './../ModalWindow/ModalWindow';
 import LoginForm from './../forms/LoginForm';
+import SearchForm from '../SearchForm/SearchForm';
 import Spinner from './../Spinner/Spinner';
 
 const Header = () => {
@@ -41,7 +42,7 @@ const Header = () => {
             <div className={styles['header-bottom']}>
                 <Link className={styles.logo} to='/'>Logo</Link>
                 <Menu />
-                <input type="text" placeholder='search'/>
+                <SearchForm/>
             </div>
             {isShowModal && (
                 <ModalWindow closeModal={closeModal}>

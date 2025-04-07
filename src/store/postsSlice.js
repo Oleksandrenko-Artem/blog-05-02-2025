@@ -1,12 +1,23 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getAllPosts, getOnePost, getAllCommentsByPost, getAllPostsByUser, getAllTags, getAllPostsByTag } from "../api";
+import { getAllPosts, getOnePost, getAllCommentsByPost, getAllPostsByUser, getAllTags, getAllPostsByTag, searchPosts } from "../api";
 
+export const searchPostsAsync = createAsyncThunk(
+    'posts/searchPostsAsync',
+    async(args, thunkAPI) => {
+        try {
+            const responce = await searchPosts(args);
+            return responce.data;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error?.message || 'Posts not exists');
+        }
+    }
+)
 export const getAllPostsByTagAsync = createAsyncThunk(
     'posts/getAllPostsByTagAsync',
     async (args, thunkAPI) => {
         try {
             const responce = await getAllPostsByTag(args);
-            return responce.data.posts;
+            return responce.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(error?.message || 'Posts not exists');
         }
@@ -71,7 +82,9 @@ const postsSlice = createSlice({
     name: 'posts',
     initialState: {
         posts: [],
+        total: 0,
         postsByUser: [],
+        // postsByTag: [],
         selectedPost: null,
         comments: [],
         tags: [],
@@ -80,12 +93,25 @@ const postsSlice = createSlice({
     },
     reducers: {},
     extraReducers: (builder) => {
+        builder.addCase(searchPostsAsync.pending, (state) => {
+            state.isPending = true;
+        })
+        builder.addCase(searchPostsAsync.fulfilled, (state, action) => {
+            state.isPending = false;
+            state.posts = action.payload.posts;
+            state.total = action.payload.total;
+        })
+        builder.addCase(searchPostsAsync.rejected, (state, action) => {
+            state.isPending = false;
+            state.error = action.payload;
+        })
         builder.addCase(getAllPostsByTagAsync.pending, (state) => {
             state.isPending = true;
         })
         builder.addCase(getAllPostsByTagAsync.fulfilled, (state, action) => {
             state.isPending = false;
-            state.posts = action.payload;
+            state.posts = action.payload.posts;
+            state.total = action.payload.total;
         })
         builder.addCase(getAllPostsByTagAsync.rejected, (state, action) => {
             state.isPending = false;

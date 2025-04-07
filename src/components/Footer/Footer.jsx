@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styles from './Footer.module.scss';
 
 const Footer = () => {
@@ -6,11 +7,9 @@ const Footer = () => {
             <h2>Finsweet</h2>
             <div>
                 <ul>
-                    <li>Home</li>
-                    <li>Blog</li>
-                    <li>About us</li>
-                    <li>Contact us</li>
-                    <li>Privacy Policy</li>
+                    <li><NavLink to='/' className={({ isActive }) => (isActive ? styles.active : undefined)}>Home</NavLink></li>
+                    <li><NavLink to='/posts' className={({ isActive }) => (isActive ? styles.active : undefined)}>Blog</NavLink></li>
+                    <li><NavLink to='/users' className={({ isActive }) => (isActive ? styles.active : undefined)}>Authors</NavLink></li>
                 </ul>
             </div>
         </div>

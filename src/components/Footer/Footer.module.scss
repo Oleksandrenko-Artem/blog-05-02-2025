@@ -3,9 +3,11 @@
 .footer{
     display: flex;
     justify-content: space-between;
-    color: white;
     background-color: $purple;
     padding: 0 20px;
+    h2{
+        color: $lightGray;
+    }
     h2::before{
         content: "{";
     }
@@ -14,6 +16,12 @@
         flex-direction: row;
         li{
             margin: 10px;
+            a {
+                padding: 0.5em;
+            }
         }
     }
+}
+.active {
+    background-color: $yellow;
 }
