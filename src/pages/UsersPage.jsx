@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import UsersList from "../components/UsersList/UsersList";
 import Limit from './../components/Limit/Limit';
 import CONSTANTS from '../constants';
@@ -14,12 +15,13 @@ const UsersPage = () => {
         setPage(1);
     };
     const skip = (page - 1) * limitUsers;
+    const { total } = useSelector((state) => state.users);
     return (
         <div className={styles.wrapper}>
             <h2>list of authors</h2>
             <Limit limit={limitUsers} changeLimit={changeLimitUsers} />
             <UsersList limit={limitUsers} skip={skip} />
-            <Pagination page={page} setPage={setPage} />
+            <Pagination page={page} setPage={setPage} limit={limitUsers} total={total} />
         </div>
     );
 }

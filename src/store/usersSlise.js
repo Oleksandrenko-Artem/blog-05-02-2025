@@ -5,7 +5,7 @@ export const getAllUsersAsync = createAsyncThunk('users/getAllUsersAsync',
     async (args, thunkAPI) => {
         try {
             const response = await getAllUsers(args);
-            return response.data.users;
+            return response.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(error?.message || 'Users not exists');
         }
@@ -27,6 +27,7 @@ const usersSlice = createSlice({
     name: 'users',
     initialState: {
         users: [],
+        total: 0,
         selectedUser: null,
         error: null,
         isPending: false,
@@ -35,7 +36,8 @@ const usersSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(getAllUsersAsync.fulfilled, (state, action) => {
             state.isPending = false;
-            state.users = action.payload;
+            state.users = action.payload.users;
+            state.total = action.payload.total;
         });
         builder.addCase(getAllUsersAsync.rejected, (state, action) => {
             state.isPending = false;
