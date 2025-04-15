@@ -9,10 +9,10 @@
     justify-content: flex-end;
     align-items: center;
     height: 3rem;
-    padding: 0 0.5rem;
+    padding: 0 0.9rem;
     p{
         margin: 0;
-        span{
+        span {
             padding-right: 0.3rem;
         }
     }
@@ -30,6 +30,16 @@
         flex-direction: column;
         align-items: flex-start;
     }
+    .header-right{
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 0.5rem;
+    }
+    .change-theme {
+        border: none;
+        background: none;
+        margin-left: 20px;
+    }
 }
 .logo{
     font-family: "Roboto Slab", serif;
@@ -37,4 +47,10 @@
     font-weight: 900;
     font-style: normal;
     font-size: 1.3rem;
+}
+.light-icon{
+    color: #fff;
+}
+.dark-icon{
+    color: #111;
 }

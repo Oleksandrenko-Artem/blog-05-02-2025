@@ -5,7 +5,7 @@ import styles from './CommentsList.module.scss';
 
 const CommentsList = (props) => {
     const { comments } = props;
-    const showComment = (comment) => <div className={styles.comment} key={comments.id}>
+    const showComment = (comment) => <div className={styles.comment} key={comment.id}>
         <h3>{comment.user.fullName}: </h3> {comment.body}
         <div className={styles['comment-likes']}>
             <Icon size={1} path={mdiThumbUp} />

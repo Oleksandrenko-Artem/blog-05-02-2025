@@ -1,0 +1,19 @@
+$bg-light: #fff;
+$text-light: #111;
+$bg-dark: #111;
+$text-dark: #fff;
+
+@mixin theme($bg-color, $text-color){
+    background-color: $bg-color;
+    color: $text-color;
+}
+
+body{
+    &.light{
+        @include theme($bg-light, $text-light);
+    }
+    &.dark{
+        @include theme($bg-dark, $text-dark);
+    }
+    transition: background-color .3s, color .3s;
+}

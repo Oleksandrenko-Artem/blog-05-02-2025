@@ -19,7 +19,7 @@ const PostsList = (props) => {
     if (isPending) {
         return <Spinner />;
     }
-    return posts.length === 0 ? <p>List users empty</p> : <section>{posts.map(showPost)}</section>;
+    return posts.length === 0 ? <p>Post list empty</p> : <section>{posts.map(showPost)}</section>;
 }
 
 PostsList.propTypes = {

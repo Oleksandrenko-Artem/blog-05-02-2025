@@ -16,6 +16,9 @@
     >div>img{
         border-radius: 50%;
     }
+    h3, p {
+        color: $text-light;
+    }
 }
 .users-list{
     display: flex;

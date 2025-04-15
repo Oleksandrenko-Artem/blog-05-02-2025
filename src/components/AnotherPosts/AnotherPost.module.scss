@@ -1,36 +1,47 @@
 @use '/src/common/styles/colors' as *;
 @use '/src/common/styles/breakpoints' as *;
 
-.post-card{
+.another-post-card {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    margin: auto;
+    width: 300px;
+    align-items: center;
     padding: 0.5rem;
     cursor: pointer;
+
     .post-card_title {
         text-align: left;
     }
-    &:hover{
+
+    &:hover {
         background-color: $lightYellow;
         .post-card_title, a, p {
             color: $text-light;
         }
     }
-    a:hover{
+
+    a:hover {
         color: $purple;
         text-decoration: underline;
     }
-    .tag-link:not(:first-child){
+
+    .tag-link:not(:first-child) {
         padding-left: 0.5rem;
     }
-    .tag-link:not(:last-child)::after{
+
+    .tag-link:not(:last-child)::after {
         content: '|';
         padding-left: 0.5rem;
     }
-    img{
-        margin-right: 15px;
+    @media all and (min-width: $m) {
+        width: 400px;
     }
-    @media all and (min-width: $m){
+}
+.posts{
+    display: flex;
+    flex-direction: column;
+    @media all and (min-width: $l) {
         flex-direction: row;
     }
 }
