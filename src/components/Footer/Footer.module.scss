@@ -1,9 +1,13 @@
 @use '/src/common/styles/colors' as *;
+@use '/src/common/styles/templates' as *;
 
+footer{
+    background-color: $purple;
+}
 .footer{
+    @extend %limit-width;
     display: flex;
     justify-content: space-between;
-    background-color: $purple;
     padding: 0 20px;
     h2{
         color: $lightGray;

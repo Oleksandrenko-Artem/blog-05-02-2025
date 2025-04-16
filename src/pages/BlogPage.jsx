@@ -4,6 +4,7 @@ import CONSTANTS from '../constants';
 import Pagination from './../components/Pagination/Pagination';
 import PostsList from "../components/PostsList/PostsList";
 import FeaturedPost from './../components/FeaturedPost/FeaturedPost';
+import styles from './pages.module.scss';
 
 const BlogPage = () => {
     const [page, setPage] = useState(1);
@@ -12,13 +13,15 @@ const BlogPage = () => {
     const { total } = useSelector((state) => state.posts);
     return (
         <>
-            <section>
-                <FeaturedPost imgPosition='right' />
-            </section>
-            <div>
-            <h1>Blog</h1>
-            <PostsList withPic limit={limitPosts} skip={skip} />
-            <Pagination page={page} setPage={setPage} limit={limitPosts} total={total} />
+            <div className={styles.wrapper}>
+                <section>
+                    <FeaturedPost imgPosition='right' />
+                </section>
+                <div>
+                <h1>Blog</h1>
+                <PostsList withPic limit={limitPosts} skip={skip} />
+                <Pagination page={page} setPage={setPage} limit={limitPosts} total={total} />
+                </div>
             </div>
         </>
     );
